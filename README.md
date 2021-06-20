@@ -1,12 +1,11 @@
-# Simple HTTPD Server Example
+# ESP32-cam http-server streaming
 
-The Example consists of HTTPD server demo with demostration of URI handling :
-    1. URI \hello for GET command returns "Hello World!" message
-    2. URI \echo for POST command echoes back the POSTed message
+This repo is based in the HTTP-Server example in tho the esp-idf, and in the streaming example of the esp32-cam repository.
 
-* Open the project configuration menu (`idf.py menuconfig`) to configure Wi-Fi or Ethernet. See "Establishing Wi-Fi or Ethernet Connection" section in [examples/protocols/README.md](../../README.md) for more details.
+* Open the project configuration menu (`idf.py menuconfig`) to configure Wi-Fi or Ethernet.
+* For esp32-camera enable the support for external SPRAM.
 
-* In order to test the HTTPD server persistent sockets demo :
+* In order to test the HTTPD server persistent sockets demo:
     1. compile and burn the firmware `idf.py -p PORT flash`
     2. run `idf.py -p PORT monitor` and note down the IP assigned to your ESP module. The default port is 80
     3. test the example :
@@ -23,4 +22,4 @@ The Example consists of HTTPD server demo with demostration of URI handling :
             
 * If the server log shows "httpd_parse: parse_block: request URI/header too long", especially when handling POST requests, then you probably need to increase HTTPD_MAX_REQ_HDR_LEN, which you can find in the project configuration menu (`idf.py menuconfig`): Component config -> HTTP Server -> Max HTTP Request Header Length
 
-See the README.md file in the upper level 'examples' directory for more information about examples.
+* Access to the camera streaming in the /cam url.
